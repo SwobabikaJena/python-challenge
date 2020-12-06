@@ -6,12 +6,12 @@ electiondata_path = os.path.join('Resources', 'election_data.csv')
 with open(electiondata_path, newline='') as electiondata_file: 
     electiondata_reader= csv.reader(electiondata_file, delimiter=",")
 
-    # Transfer contents of csv to a list so that multiple loops can be run on it.
+    # Transfer contents of csv to a list so that multiple loops can be run on it:
     data = list(electiondata_reader)
-    # Exclude Headers from list
+    # Exclude Headers from list:
     data.pop(0)
 
-    # 
+    # To calculate No. of votes and list of candidates:
     total_votes = 0
     candidate_list = []
     votes_list = []
@@ -27,7 +27,8 @@ with open(electiondata_path, newline='') as electiondata_file:
     print ("------------------------")
     print (f"Total Votes: {total_votes}")
     print ("------------------------")    
-        
+    
+    # To calculate percentage and number of votes each candidate won:
     length = len(candidate_list)
     votes_list = []
     winning_percent=[]
@@ -44,10 +45,12 @@ with open(electiondata_path, newline='') as electiondata_file:
 
     print ("------------------------")
 
+    # To find the winner based on votes:
     winner_index = votes_list.index(max(votes_list))
     print (f"Winner:  {candidate_list[winner_index]}")
     print ("------------------------")
 
+    # To create an output text file with the results: 
     outfile = 'Analysis/output.txt'
     with open(outfile,'w') as text:
         lines = text.write("Election Results\n")

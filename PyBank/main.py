@@ -14,7 +14,7 @@ with open(budgetdata_path, newline='') as budgetdata_file:
     total_months = 0
     total_profitloss = 0
 
-    # For Total months and Total profit over the entire period
+    # For Total months and Total profit over the entire period:
     for row in budgetdata_reader:
         total_months = total_months + 1
         total_profitloss = total_profitloss + int(row[1])
@@ -35,6 +35,7 @@ with open(budgetdata_path, newline='') as budgetdata_file:
     
     print(f"Average Change: ${round(avg_change,2)}")
 
+    # For greatest increase and decrease in Profit/Losses over the entire period:
     diff_amount = []
     length = len(values)
 
@@ -49,7 +50,7 @@ with open(budgetdata_path, newline='') as budgetdata_file:
     min_diff_index = diff_amount.index(min(diff_amount))
     print (f"Greatest Decrease in Profits: {months[min_diff_index]} (${min(diff_amount)})")
 
-
+    # To create an output text file with the results:
     outfile = 'Analysis/output.txt'
     with open(outfile,'w') as text:
         lines = text.write("Financial Analysis \n")
