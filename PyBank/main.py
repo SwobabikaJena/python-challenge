@@ -1,12 +1,13 @@
 import os
 import csv
 
+# To read csv file:
 budgetdata_path = os.path.join('Resources', 'budget_data.csv')
 
 with open(budgetdata_path, newline='') as budgetdata_file: 
     budgetdata_reader= csv.reader(budgetdata_file, delimiter=",")
     
-
+    # Exclude Headers from list:
     exclude_header = next(budgetdata_file)
 
     values = []

@@ -1,15 +1,17 @@
 import os
 import csv
 
+# To read csv file:
 electiondata_path = os.path.join('Resources', 'election_data.csv')
 
 with open(electiondata_path, newline='') as electiondata_file: 
     electiondata_reader= csv.reader(electiondata_file, delimiter=",")
 
+    # Exclude Headers from list:
+    exclude_header = next(electiondata_file)
+    
     # Transfer contents of csv to a list so that multiple loops can be run on it:
     data = list(electiondata_reader)
-    # Exclude Headers from list:
-    data.pop(0)
 
     # To calculate No. of votes and list of candidates:
     total_votes = 0
